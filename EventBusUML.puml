@@ -1,0 +1,43 @@
+@startuml
+interface IBus {
+  + {method} addSubscriber(ISubscriber subscriber, EventType eventType);
+  + {method} removeSubscriber(ISubscriber subscriber, EventType eventType);
+  + {method} publish(EventType eventType, String payload);
+}
+
+interface IPublisher {
+  + {method} publish(IBus bus, EventType eventType, String payload);
+}
+
+interface ISubscriber {
+  + {method} handleEvenet(EventType eventType, String payload);
+}
+
+enum EventType {
+    EVENT_TYPE_A,
+    EVENT_TYPE_B,
+}
+
+class ConcreteBus {
+  - {field} Map<EventType, List<ISubscriber>> subscribers;
+  + {method} addSubscriber(ISubscriber subscriber, EventType eventType);
+  + {method} removeSubscriber(ISubscriber subscriber, EventType eventType);
+  + {method} publish(EventType eventType, String payload);
+}
+
+class ConcretePublisher {
+  + {method} publish(IBus bus, EventType eventType, String payload);
+}
+
+class ConcreteSubscriber {
+  + {method} handleEvenet(EventType eventType, String payload);
+}
+
+IBus --> ISubscriber
+IBus <- EventType
+IBus <-- IPublisher
+
+IBus <|-- ConcreteBus
+IPublisher <|-- ConcretePublisher
+ISubscriber <|-- ConcreteSubscriber
+@enduml

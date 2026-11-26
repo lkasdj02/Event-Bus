@@ -1,0 +1,6 @@
+package Classes;
+
+public enum EventType {
+    EVENT_TYPE_A,
+    EVENT_TYPE_B,
+}
