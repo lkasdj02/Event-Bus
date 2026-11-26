@@ -1,10 +1,10 @@
-import Classes.ConcreteBus;
-import Classes.ConcretePublisher;
-import Classes.ConcreteSubscriber;
-import Classes.EventType;
-import Classes.IBus;
-import Classes.IPublisher;
-import Classes.ISubscriber;
+import eventbus.ConcreteBus;
+import eventbus.ConcretePublisher;
+import eventbus.ConcreteSubscriber;
+import eventbus.EventType;
+import eventbus.IBus;
+import eventbus.IPublisher;
+import eventbus.ISubscriber;
 
 public class App {
     public static void main(String[] args) throws Exception {

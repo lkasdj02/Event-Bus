@@ -1,3 +1,3 @@
 # README
 
-This is a test project for the EventBus Pattern written in java.
+This is a test project for the eventbus Pattern written in java.
