@@ -1,4 +1,4 @@
-package Classes;
+package eventbus;
 
 
 public class ConcreteSubscriber implements ISubscriber {

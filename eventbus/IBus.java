@@ -1,4 +1,4 @@
-package Classes;
+package eventbus;
 
 public interface IBus {
     public void addSubscriber(ISubscriber subscriber, EventType eventType);

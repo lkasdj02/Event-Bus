@@ -1,4 +1,4 @@
-package Classes;
+package eventbus;
 
 public enum EventType {
     EVENT_TYPE_A,
