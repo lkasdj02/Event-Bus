@@ -1,0 +1,43 @@
+@startuml
+interface IEvent {
+
+}
+
+class FirstTypeOfEvent {
+  - {field} paylodArg1 : String
+  + {method} FirstTypeOfEvent(paylodArg1 : String)
+  + {method} getPaylodadArg1() : String
+}
+
+class SecodTypeOfEvent {
+  - {field} paylodArg1 : String
+  - {field} paylodArg2 : String
+  + {method} SecodTypeOfEvent(paylodArg1 : String, paylodArg2 : String)
+  + {method} getPaylodadArg1() : String
+  + {method} getPaylodadArg2() : String
+}
+
+interface ISubscriber<T extends Event> {
+  + {method} HandleEvent(event : T)
+}
+
+interface IBus {
+  + {method} addSubscriber(ISubscriber<? super E> subscriber, eventType : Class<E>) E extends Event
+  + {method} removeSubscriber(ISubscriber<? super E> subscriber, eventType : Class<E>) E extends Event
+  + {method} publish(event : Event)
+}
+
+class ConcreteBus {
+  - {field} subscribers : Map<class<?>, List<ISubscriber<?>> ? extends Event
+  + {method} ConcreteBus(Map<class<?>, List<ISubscriber<?>> ? extends Event)
+  + {method} addSubscriber(ISubscriber<? super E> subscriber, eventType : Class<E>) E extends Event
+  + {method} removeSubscriber(ISubscriber<? super E> subscriber, eventType : Class<E>) E extends Event
+  + {method} publish(event : Event)
+}
+
+IEvent <|-- FirstTypeOfEvent
+IEvent <|-- SecodTypeOfEvent
+IEvent <|- ISubscriber
+IBus <|-- ConcreteBus
+
+@enduml
